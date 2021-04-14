@@ -4,5 +4,30 @@
 - Cliccando sul testo compare uno sbarramento a indicarne il completamento
 */
 $(document).ready(function () {
-    console.log("ok boolean");
+    
+    // Data
+    var items = [
+        {
+            text: "morning lesson",
+            completed: "true",
+        },
+        {
+            text: "afternoon coding",
+            completed: "false",
+        },
+        {
+            text: "physical exercise",
+            completed: "true",
+        },
+        {
+            text: "evening reading",
+            completed: "false",
+        }
+
+    ];
+
+    // Refs
+    var list = $(".elements");
+    var input = $(".add");
+    var template = $(".template li")
 });
