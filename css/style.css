@@ -18,6 +18,11 @@ body {
     padding: 20px;
 }
 
+/* Utilities */
+.completed {
+    text-decoration: line-through;
+}
+
 /* Header */
 h1 {
     margin-bottom: 30px;
@@ -67,3 +72,4 @@ h1 {
 i:hover {
     color: rgb(160, 3, 3);
 }
+

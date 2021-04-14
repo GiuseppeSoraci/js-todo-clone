@@ -1,10 +1,5 @@
-/*
-- Rifare la todo list come vista insieme a lezione: popolando gli elementi della lista con JavaScript inserendo un nuovo todo con un input testuale e gli eventi da tastiera
-- Rimozione todo con click su icona
-- Cliccando sul testo compare uno sbarramento a indicarne il completamento
-*/
 $(document).ready(function () {
-    
+
     // Data
     var items = [
         {
@@ -29,5 +24,48 @@ $(document).ready(function () {
     // Refs
     var list = $(".elements");
     var input = $(".add");
-    var template = $(".template li")
+    var template = $(".template li");
+
+    // List
+    for (var i = 0; i < items.length; i++) {
+        var todo = items[i];
+
+        // Template
+        var item = template.clone();
+        item.find(".text").text(todo.text);
+
+        // Add
+        list.append(item);
+    }
+
+    // Add element
+    input.keyup(function (e) {
+
+        if (e.which === 13) {
+            var text = input.val().trim();
+
+            if (text !== "") {
+
+                // Template
+                var item = template.clone();
+                item.find(".text").text(text);
+
+                // Add
+                list.append(item);
+
+                // Reset
+                input.val("");
+            }
+        }
+    });
+
+    // Remove element
+    $("body").on("click", ".elements li i", function () {
+        $(this).parent().remove();
+    });
+
+    // Completed
+    $("body").on("click", ".elements li span", function () {
+        $(this).toggleClass("completed");
+    });
 });
